@@ -4,7 +4,7 @@ export default function SessionHistory() {
   const sessions = getSessions();
 
   return (
-    <div>
+    <div className="card">
       <h2>📜 Session History</h2>
 
       {sessions.length === 0 ? (
@@ -13,11 +13,15 @@ export default function SessionHistory() {
         sessions
           .slice()
           .reverse()
-          .map((s, index) => (
-            <div key={index} style={{ marginBottom: "10px" }}>
-              <strong>{s.type.toUpperCase()}</strong> — {s.duration / 60} min
-              <br />
-              <small>{new Date(s.timestamp).toLocaleString()}</small>
+          .map((session, index) => (
+            <div className="history-item" key={index}>
+              <div className="history-type">{session.type.toUpperCase()}</div>
+
+              <div>Duration: {session.duration / 60} min</div>
+
+              <div className="history-time">
+                {new Date(session.timestamp).toLocaleString()}
+              </div>
             </div>
           ))
       )}

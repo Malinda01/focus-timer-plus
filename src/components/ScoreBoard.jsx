@@ -6,9 +6,9 @@ export default function ScoreBoard() {
   const score = calculateScore(sessions);
 
   return (
-    <div>
-      <h2>📊 Focus Score</h2>
-      <h1>{score}</h1>
+    <div className="card score-card">
+      <h2>📊 Today's Focus Score</h2>
+      <div className="score-number">{score}</div>
       <p>Total Sessions: {sessions.length}</p>
     </div>
   );
